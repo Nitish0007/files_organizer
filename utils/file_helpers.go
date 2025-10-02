@@ -14,36 +14,6 @@ func GetRootPath() (string, error) {
 	return rootPath, nil
 }
 
-
-func CreateOrganizedDirectory(rootPath string) string {
-	CreateDirectory(rootPath + "/Downloads/Organized/Documents")	
-	CreateDirectory(rootPath + "/Downloads/Organized/Images")
-	CreateDirectory(rootPath + "/Downloads/Organized/Videos")
-	CreateDirectory(rootPath + "/Downloads/Organized/Audio")
-	CreateDirectory(rootPath + "/Downloads/Organized/Archives")
-	CreateDirectory(rootPath + "/Downloads/Organized/Code")
-	CreateDirectory(rootPath + "/Downloads/Organized/Executables")
-	// CreateDirectory(rootPath + "/Downloads/Organized/Folders") # NOTE: Might need to handle nested copying/moving of folders, will do it later
-	CreateDirectory(rootPath + "/Downloads/Organized/Others")
-	return rootPath + "/Downloads/Organized"
-}
-
-func DirToOrganize() (string, error) {
-	rp, err := GetRootPath()
-	if err != nil {
-		return "", err
-	}
-	return rp + "/Downloads", nil
-}
-
-func OrganizedDirPath() (string, error) {
-	dirToOrganize, err := DirToOrganize()
-	if err != nil {
-		return "", err
-	}
-	return dirToOrganize + "/Organized", nil
-}
-
 func CreateDirectory(path string) {
 	if _, err := os.Stat(path); os.IsNotExist(err) {
 		os.MkdirAll(path, 0755)
