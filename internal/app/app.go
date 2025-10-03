@@ -79,9 +79,7 @@ type App interface {
 	Perform(rootPath, pathToOrganize string)
 }
 
-type CliApp struct {
-	
-}
+type CliApp struct {}
 
 func NewCliApp() *CliApp {
 	return &CliApp{}
